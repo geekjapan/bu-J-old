@@ -5,7 +5,7 @@ Microsoft Decision 1 in Azure Foundry (default) or OpenAI Decisions to select br
 A separate OpenAI-compatible LLM supplies text for `TYPE_TEXT`. No Jev API key or
 TypeSafe requests are needed. The Python package and `jev` command keep their
 upstream names. It lives in the `jev-ultrafast/` directory of the
-[geekjapan/browser-use](https://github.com/geekjapan/browser-use) repository as a
+[geekjapan/bu-J](https://github.com/geekjapan/bu-J) repository as a
 separate uv project; the former standalone repository is no longer needed.
 
 The browser runs through Browser Harness. This is separate from the standard
@@ -48,8 +48,8 @@ There are no site-specific action scripts or prepared field strings in the polic
 ## Try it
 
 ```bash
-git clone --branch feat/openai-decisions-api https://github.com/geekjapan/browser-use.git
-cd browser-use/jev-ultrafast
+git clone --branch feat/openai-decisions-api https://github.com/geekjapan/bu-J.git
+cd bu-J/jev-ultrafast
 uv sync
 cp .env.example .env
 # Set AZURE_ENDPOINT, AZURE_API_KEY, and TEXT_MODEL_API_KEY.
@@ -195,11 +195,11 @@ The scope is the existing eight-operation Decision integrations, not the entire 
 このリポジトリには、実行用の `verify-decision-stack` スキルとテストスイートを同梱しています。スキルを生成した `create-formal-verification-skill` を別途インストールする必要はありません。
 
 1. Git、uv、Node.js、Google ChromeまたはChromiumを用意します。macOSとWindowsで実行確認済みです。Linuxでの動作は未確認です。
-2. 以下のように **geekjapan/browser-use** を取得します。`jev-ultrafast` はこのリポジトリの `jev-ultrafast/` フォルダーに含まれています。Decision API対応は現時点でこの機能ブランチにあるため、`main` ではなく指定ブランチを使います。
+2. 以下のように **geekjapan/bu-J** を取得します。`jev-ultrafast` はこのリポジトリの `jev-ultrafast/` フォルダーに含まれています。Decision API対応は現時点でこの機能ブランチにあるため、`main` ではなく指定ブランチを使います。
 
    ```bash
-   git clone --branch feat/openai-decisions-api https://github.com/geekjapan/browser-use.git
-   cd browser-use
+   git clone --branch feat/openai-decisions-api https://github.com/geekjapan/bu-J.git
+   cd bu-J
    uv python install 3.12
    uv lock
    uv sync --frozen

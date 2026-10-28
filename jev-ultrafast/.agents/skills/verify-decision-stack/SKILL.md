@@ -5,7 +5,7 @@ description: Verify Azure/OpenAI finite-choice browser automation across jev-ult
 
 # Verify the decision browser stack
 
-Run from the `jev-ultrafast/` directory of the browser-use repository:
+Run from the `jev-ultrafast/` directory of the bu-J repository:
 
 ```bash
 cd jev-ultrafast
@@ -37,7 +37,7 @@ The Chromium checks use a fresh headless BrowserSession. The real Jev executor i
 
 ## Source synchronization
 
-Last source review: browser-use `76e5847814d6ba5b83e5b9948ffb6648c2d76feb`; jev-ultrafast `ee28161b54378c1b5d7e97ed683c284cd734d43e`. Since 2026-10-28 jev-ultrafast lives in `jev-ultrafast/` of the browser-use repository, imported from `geekjapan/jev-ultrafast@f4d66bd`, so both `repository` entries in `report.json` record the same commit.
+Last source review: browser-use `76e5847814d6ba5b83e5b9948ffb6648c2d76feb`; jev-ultrafast `ee28161b54378c1b5d7e97ed683c284cd734d43e`. Since 2026-10-28 jev-ultrafast lives in `jev-ultrafast/` of the bu-J repository, imported from `geekjapan/jev-ultrafast@f4d66bd`, so both `repository` entries in `report.json` record the same commit.
 
 `verification/sources.json` lists covered files. `report.json` records their SHA-256 digests and checkout commits on each run. Review source changes against these commits before treating prior evidence as current. Advance the review commits only after checking that the assertions, extracted JavaScript, mutation needles and stated assumptions still describe the implementation. Use `/maintain-formal-verification-skill` for this maintenance workflow.
 

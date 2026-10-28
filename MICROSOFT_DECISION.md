@@ -80,7 +80,7 @@ On pages with more targets than the request can hold, the agent keeps the first 
 `MediaPipeTargetRanker` runs MediaPipe Decision Maker locally with an EmbeddingGemma 2 model. Install the optional extra and download [`embeddinggemma-2-text-270m.litertlm`](https://huggingface.co/litert-community/embeddinggemma-2-text-270m-litert-lm) (165 MB, Apache-2.0):
 
 ```bash
-uv add "browser-use[mediapipe]"
+uv sync --extra mediapipe
 ```
 
 MediaPipe 1.2.0 publishes wheels for macOS arm64, Linux x86_64/aarch64 and Windows; there is no macOS x86_64 wheel.

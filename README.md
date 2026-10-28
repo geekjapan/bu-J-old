@@ -1,3 +1,9 @@
+# bu-J
+
+bu-J is a fork of [Browser Use](https://github.com/browser-use/browser-use) that adds finite-choice browser agents: `DecisionAgent` for Microsoft Decision 1 (Microsoft Foundry) and OpenAI Decisions, optional on-device EmbeddingGemma 2 target ranking, and the `jev-ultrafast` runtime with the verification suite for both implementations. See [MICROSOFT_DECISION.md](MICROSOFT_DECISION.md) and [`jev-ultrafast/`](jev-ultrafast/README.md). The Python import name stays `browser_use` and the CLI commands keep their names. The upstream README follows.
+
+---
+
 <!-- mcp-name: com.browser-use/browser-use -->
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/2ccdb752-22fb-41c7-8948-857fc1ad7e24">

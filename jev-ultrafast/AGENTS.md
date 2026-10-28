@@ -2,7 +2,7 @@
 
 Read README.md before editing. Keep the loop small: page -> indexed elements -> operation + target -> execution.
 
-This package lives in `jev-ultrafast/` of the browser-use repository as a separate uv project (Python >= 3.12, own `uv.lock`). Run the checks below from this directory. `python3 verification/run.py` verifies both Decision implementations and defaults to the repository root.
+This package lives in `jev-ultrafast/` of the bu-J repository as a separate uv project (Python >= 3.12, own `uv.lock`). Run the checks below from this directory. `python3 verification/run.py` verifies both Decision implementations and defaults to the repository root.
 
 - The input is one natural-language goal. Do not add site-specific plans or hardcoded field values.
 - The configured decision provider (Azure by default, or OpenAI Decisions) chooses an operation and operation-specific target heads in one request. Consume only the selected operation's target.

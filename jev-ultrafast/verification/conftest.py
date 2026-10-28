@@ -1,4 +1,4 @@
-"""Load jev-ultrafast and the enclosing browser-use repository without replacing their production modules."""
+"""Load jev-ultrafast and the enclosing bu-J repository without replacing their production modules."""
 
 import os
 import sys

@@ -251,7 +251,7 @@ class MediaPipeTargetRanker:
 					DecisionMakerOptions,
 				)
 			except ImportError:
-				raise ImportError('Install the optional extra: browser-use[mediapipe].') from None
+				raise ImportError('Install the optional extra bu-J[mediapipe] (uv sync --extra mediapipe).') from None
 			maker = DecisionMaker.create_from_options(
 				DecisionMakerOptions(base_options=BaseOptions(model_asset_path=model_path), max_num_tokens=max_num_tokens)
 			)

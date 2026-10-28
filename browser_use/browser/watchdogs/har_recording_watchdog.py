@@ -635,7 +635,7 @@ class HarRecordingWatchdog(BaseWatchdog):
 
 		# Try to include our library version in creator
 		try:
-			bu_version = importlib_metadata.version('browser-use')
+			bu_version = importlib_metadata.version('bu-J')
 		except Exception:
 			# Fallback when running from source without installed package metadata
 			bu_version = 'dev'
