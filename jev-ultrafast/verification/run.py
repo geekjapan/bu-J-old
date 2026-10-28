@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -198,6 +199,9 @@ print(json.dumps({'python': platform.python_version(), **{
     run("syntax-ui", ["node", "--check", "jev_ultrafast/static/app.js"])
     run("syntax-snapshot", ["node", "--check", "jev_ultrafast/snapshot.js"])
     run("lint", ["uv", "run", "--frozen", "ruff", "check", "."])
+    # uv build keeps earlier wheels in --out-dir; wheel-content expects exactly one per directory.
+    for stale in ("dist-jev", "dist-browser-use"):
+        shutil.rmtree(output / stale, ignore_errors=True)
     run("build-jev", ["uv", "build", "--out-dir", str(output / "dist-jev")])
     run("build-browser-use", ["uv", "build", "--out-dir", str(output / "dist-browser-use")], cwd=browser_use)
     run(
