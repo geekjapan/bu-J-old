@@ -48,7 +48,7 @@ There are no site-specific action scripts or prepared field strings in the polic
 ## Try it
 
 ```bash
-git clone --branch feat/openai-decisions-api https://github.com/geekjapan/bu-J.git
+git clone https://github.com/geekjapan/bu-J.git
 cd bu-J/jev-ultrafast
 uv sync
 cp .env.example .env
@@ -197,10 +197,10 @@ The scope is the existing eight-operation Decision integrations, not the entire 
 このリポジトリには、実行用の `verify-decision-stack` スキルとテストスイートを同梱しています。スキルを生成した `create-formal-verification-skill` を別途インストールする必要はありません。
 
 1. Git、uv、Node.js、Google ChromeまたはChromiumを用意します。macOSとWindowsで実行確認済みです。Linuxでの動作は未確認です。
-2. 以下のように **geekjapan/bu-J** を取得します。`jev-ultrafast` はこのリポジトリの `jev-ultrafast/` フォルダーに含まれています。Decision API対応は現時点でこの機能ブランチにあるため、`main` ではなく指定ブランチを使います。
+2. 以下のように **geekjapan/bu-J** を取得します。`jev-ultrafast` はこのリポジトリの `jev-ultrafast/` フォルダーに含まれています。
 
    ```bash
-   git clone --branch feat/openai-decisions-api https://github.com/geekjapan/bu-J.git
+   git clone https://github.com/geekjapan/bu-J.git
    cd bu-J
    uv python install 3.12
    uv lock

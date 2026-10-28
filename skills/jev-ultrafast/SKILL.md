@@ -9,10 +9,10 @@ jev-ultrafast uses **Microsoft Decision 1** in Azure / Microsoft Foundry (`DECIS
 
 ## Get it
 
-It lives in `jev-ultrafast/` of the [bu-J](https://github.com/geekjapan/bu-J) repository as a separate uv project (Python >= 3.12). The Decision API work is on the `feat/openai-decisions-api` branch until it is merged into `main`.
+It lives in `jev-ultrafast/` of the [bu-J](https://github.com/geekjapan/bu-J) repository as a separate uv project (Python >= 3.12).
 
 ```bash
-git clone --branch feat/openai-decisions-api https://github.com/geekjapan/bu-J.git
+git clone https://github.com/geekjapan/bu-J.git
 cd bu-J/jev-ultrafast
 uv sync
 cp .env.example .env   # fill in the variables below; never commit it

@@ -9,12 +9,12 @@ description: "Finite-choice browser automation with bu-J's DecisionAgent: Micros
 
 ## Install
 
-`DecisionAgent` ships in [bu-J](https://github.com/geekjapan/bu-J), a fork of Browser Use; the import name is `browser_use`. Pin the `feat/openai-decisions-api` branch until it is merged into `main`:
+`DecisionAgent` ships in [bu-J](https://github.com/geekjapan/bu-J), a fork of Browser Use; the import name is `browser_use`:
 
 ```bash
-uv add "bu-J @ git+https://github.com/geekjapan/bu-J@feat/openai-decisions-api"
+uv add "bu-J @ git+https://github.com/geekjapan/bu-J"
 # with the on-device target ranker:
-uv add "bu-J[mediapipe] @ git+https://github.com/geekjapan/bu-J@feat/openai-decisions-api"
+uv add "bu-J[mediapipe] @ git+https://github.com/geekjapan/bu-J"
 uv run browser-use install   # Chromium, only if you have no Chrome
 ```
 
