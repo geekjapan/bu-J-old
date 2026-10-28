@@ -56,6 +56,8 @@ cp .env.example .env
 uv run jev
 ```
 
+For coding agents, the `jev-ultrafast` skill installs from this repository with `npx skills add /path/to/bu-J --skill jev-ultrafast`; see the root README.
+
 Use your Azure resource root URL for `AZURE_ENDPOINT`, for example
 `https://your-resource.cognitiveservices.azure.com`. Set `AZURE_DEPLOYMENT_NAME`
 to your deployment name. Its default is `decision-1`. The client calls

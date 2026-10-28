@@ -1,6 +1,75 @@
 # bu-J
 
-bu-J is a fork of [Browser Use](https://github.com/browser-use/browser-use) that adds finite-choice browser agents: `DecisionAgent` for Microsoft Decision 1 (Microsoft Foundry) and OpenAI Decisions, optional on-device EmbeddingGemma 2 target ranking, and the `jev-ultrafast` runtime with the verification suite for both implementations. See [MICROSOFT_DECISION.md](MICROSOFT_DECISION.md) and [`jev-ultrafast/`](jev-ultrafast/README.md). The Python import name stays `browser_use` and the CLI commands keep their names. The upstream README follows.
+bu-J is a fork of [Browser Use](https://github.com/browser-use/browser-use) that adds finite-choice browser agents: `DecisionAgent` for Microsoft Decision 1 (Microsoft Foundry) and OpenAI Decisions, optional on-device EmbeddingGemma 2 target ranking, and the `jev-ultrafast` runtime with the verification suite for both implementations. The Python import name stays `browser_use` and the CLI commands keep their names. The upstream README follows the two installation sections below.
+
+## Install the module
+
+The Decision API work is on the `feat/openai-decisions-api` branch, so pin that branch until it is merged into `main`. You need Python 3.11 or newer and [uv](https://docs.astral.sh/uv/getting-started/installation/).
+
+Add bu-J to an existing project:
+
+```bash
+uv add "bu-J @ git+https://github.com/geekjapan/bu-J@feat/openai-decisions-api"
+# with the on-device target ranker (EmbeddingGemma 2 via MediaPipe):
+uv add "bu-J[mediapipe] @ git+https://github.com/geekjapan/bu-J@feat/openai-decisions-api"
+uv run browser-use install   # Chromium, only if you have no Chrome
+```
+
+Or work from a checkout, which also contains `jev-ultrafast/`:
+
+```bash
+git clone --branch feat/openai-decisions-api https://github.com/geekjapan/bu-J.git
+cd bu-J
+uv sync                      # add --extra mediapipe for the on-device target ranker
+uv run browser-use install   # Chromium, only if you have no Chrome
+```
+
+Then follow [skills/decision-agent/SKILL.md](skills/decision-agent/SKILL.md) for `DecisionAgent` and [jev-ultrafast/README.md](jev-ultrafast/README.md) for the standalone runtime.
+
+## Install the skills
+
+The skills for coding agents live in [`skills/`](skills/) and install with the [`skills` CLI](https://github.com/vercel-labs/skills). Two are specific to bu-J: `decision-agent` and `jev-ultrafast`. The others (`browser-use`, `cloud`, `open-source`, `qa`, `remote-browser`, `x402`) are inherited from upstream.
+
+```bash
+# From a checkout (the CLI cannot address a branch name that contains "/"):
+npx skills add /path/to/bu-J --skill decision-agent --skill jev-ultrafast
+
+# Once the branch is merged into main:
+npx skills add geekjapan/bu-J --skill decision-agent --skill jev-ultrafast
+```
+
+Add `--list` to see the skills without installing, `-g` to install for every project instead of the current one, `-a claude-code` (or `codex`, `cursor`, `opencode`, ...) to target one agent, and `-y` to skip prompts. The verification skill `verify-decision-stack` stays in `jev-ultrafast/.agents/skills/` because it runs the suite in that directory; open the repository as the working folder to use it.
+
+### 日本語: モジュールとスキルの導入
+
+Decision API 対応は現時点で `feat/openai-decisions-api` ブランチにあるため、`main` に取り込まれるまでこのブランチを指定します。Python 3.11 以上と [uv](https://docs.astral.sh/uv/getting-started/installation/) が必要です。
+
+```bash
+# 既存プロジェクトに追加する
+uv add "bu-J @ git+https://github.com/geekjapan/bu-J@feat/openai-decisions-api"
+# 端末上でターゲットを並べ替える EmbeddingGemma 2 も使う場合
+uv add "bu-J[mediapipe] @ git+https://github.com/geekjapan/bu-J@feat/openai-decisions-api"
+
+# または取得して使う（jev-ultrafast/ も含まれます）
+git clone --branch feat/openai-decisions-api https://github.com/geekjapan/bu-J.git
+cd bu-J
+uv sync                      # --extra mediapipe で EmbeddingGemma 2 も導入
+uv run browser-use install   # Chrome が無い場合だけ Chromium を取得
+```
+
+使い方は `DecisionAgent` が [skills/decision-agent/SKILL.md](skills/decision-agent/SKILL.md)、単体ランタイムが [jev-ultrafast/README.md](jev-ultrafast/README.md) です。
+
+コーディングエージェント用のスキルは `skills/` にあり、[`skills` CLI](https://github.com/vercel-labs/skills) で導入します。bu-J 固有のスキルは `decision-agent` と `jev-ultrafast` の 2 つで、残りは上流由来です。
+
+```bash
+# 取得したフォルダーから導入する（CLI は "/" を含むブランチ名を指定できません）
+npx skills add /path/to/bu-J --skill decision-agent --skill jev-ultrafast
+
+# main に取り込まれた後
+npx skills add geekjapan/bu-J --skill decision-agent --skill jev-ultrafast
+```
+
+`--list` で一覧表示、`-g` で全プロジェクト共通に導入、`-a claude-code`（または `codex`、`cursor`、`opencode` など）で対象エージェントを指定、`-y` で確認を省略できます。検証スキル `verify-decision-stack` は `verification/` と一組のため `jev-ultrafast/.agents/skills/` に置いたままで、リポジトリを作業フォルダーとして開いて使います。
 
 ---
 
@@ -108,7 +177,7 @@ Install or upgrade browser-use to the latest stable version with uv using Python
 
 ## Path 3: Python Library
 
-For finite-choice agents using Azure (Microsoft Foundry) or OpenAI, with optional on-device EmbeddingGemma 2 target ranking, see [Use Azure Microsoft Decision 1 or OpenAI Decisions](MICROSOFT_DECISION.md). The standalone finite-choice runtime and the verification suite for both implementations live in [`jev-ultrafast/`](jev-ultrafast/README.md).
+For finite-choice agents using Azure (Microsoft Foundry) or OpenAI, with optional on-device EmbeddingGemma 2 target ranking, see [Use Azure Microsoft Decision 1 or OpenAI Decisions](skills/decision-agent/SKILL.md). The standalone finite-choice runtime and the verification suite for both implementations live in [`jev-ultrafast/`](jev-ultrafast/README.md).
 
 Run the Browser Use agent locally from Python, with your choice of model and a local or cloud browser:
 
