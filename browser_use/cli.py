@@ -11,7 +11,7 @@ from io import StringIO
 
 def _browser_use_version() -> str:
 	try:
-		return version('browser-use')
+		return version('bu-J')
 	except PackageNotFoundError:
 		return 'unknown'
 

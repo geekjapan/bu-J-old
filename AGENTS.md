@@ -1,8 +1,12 @@
 # AGENTS.md Version 2
 <guidelines>
+This repository is bu-J (distribution `bu-J`, GitHub `geekjapan/bu-J`): a fork of Browser-Use that adds finite-choice decision agents (`browser_use/decision.py`) and the `jev-ultrafast/` runtime. The import name remains `browser_use`; references to Browser-Use below describe the inherited library. Fork-owned agent skills live in `skills/decision-agent/` (the DecisionAgent guide; `MICROSOFT_DECISION.md` only points there) and `skills/jev-ultrafast/`; `npx skills add` discovers skills only in root containers such as `skills/`.
+
 Browser-Use is an AI agent that autonomously interacts with the web. It takes a user-defined task, navigates web pages using Chromium via CDP, processes HTML, and repeatedly queries a language model to decide the next action—until the task is completed.
 
 # Development Rules
+- `jev-ultrafast/` is a separate uv project (Python >= 3.12, own `uv.lock`) kept in this repository; it is not a workspace member. Run its checks from that directory (see `jev-ultrafast/AGENTS.md`). Root `pytest`, `pyright`, the wheel and the Docker image do not include it, and root pre-commit excludes it from `ruff-format` and `pyright`.
+
 - Always use [`uv`](https://github.com/astral-sh/uv) instead of `pip`
 ```bash
 uv venv --python 3.11

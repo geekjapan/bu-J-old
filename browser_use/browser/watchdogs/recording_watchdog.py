@@ -76,7 +76,7 @@ class RecordingWatchdog(BaseWatchdog):
 		recorder.start()
 		if not recorder._is_active:
 			raise RuntimeError(
-				'Failed to initialize video recorder — ensure optional deps are installed (`pip install "browser-use[video]"`).'
+				'Failed to initialize video recorder — ensure optional deps are installed (`pip install "bu-J[video]"`).'
 			)
 
 		self._recorder = recorder

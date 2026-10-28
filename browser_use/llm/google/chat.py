@@ -128,7 +128,7 @@ class ChatGoogle(BaseChatModel):
 	def _get_http_options(self) -> dict[str, Any]:
 		"""Get http options with the default headers set."""
 		try:
-			bu_version = importlib.metadata.version('browser-use')
+			bu_version = importlib.metadata.version('bu-J')
 		except importlib.metadata.PackageNotFoundError:
 			bu_version = 'unknown'
 

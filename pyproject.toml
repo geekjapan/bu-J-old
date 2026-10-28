@@ -1,6 +1,6 @@
 [project]
-name = "browser-use"
-description = "Open-source browser agent + hosted cloud browsers for AI agents, from $0.02/browser-hour"
+name = "bu-J"
+description = "Browser Use fork with finite-choice decision agents (Microsoft Decision 1, OpenAI Decisions, on-device target ranking) and the jev-ultrafast runtime"
 authors = [{ name = "Gregor Zunic" }]
 version = "0.13.13"
 readme = "README.md"
@@ -69,6 +69,8 @@ core = [
     "browser-use-core==0.13.3; sys_platform == 'win32' and (platform_machine == 'AMD64' or platform_machine == 'x86_64')",
 ]
 aws = ["boto3==1.42.37"]
+# mediapipe: on-device target ranking for DecisionAgent (EmbeddingGemma 2 via MediaPipe Decision Maker)
+mediapipe = ["mediapipe==1.2.0"]
 oci = ["oci==2.166.0"]
 video = ["imageio[ffmpeg]==2.37.2", "numpy==2.4.1"]
 examples = [
@@ -86,8 +88,8 @@ eval = [
     "psutil==7.2.2",
     "datamodel-code-generator==0.75.1",
 ]
-cli-oci = ["browser-use[cli,oci]"]
-all = ["browser-use[cli,examples,aws,oci]"]
+cli-oci = ["bu-J[cli,oci]"]
+all = ["bu-J[cli,examples,aws,oci]"]
 
 # will prefer to use local source code checked out in ../../browser-use (if present) instead of pypi browser-use package
 # [tool.uv.sources]
@@ -95,9 +97,10 @@ all = ["browser-use[cli,examples,aws,oci]"]
 
 
 [project.urls]
-Homepage = "https://browser-use.com"
+Homepage = "https://github.com/geekjapan/bu-J"
 Documentation = "https://docs.browser-use.com"
-Repository = "https://github.com/browser-use/browser-use"
+Repository = "https://github.com/geekjapan/bu-J"
+Upstream = "https://github.com/browser-use/browser-use"
 Telemetry = "https://docs.browser-use.com/development/monitoring/telemetry"
 "Terms of Service" = "https://browser-use.com/legal/terms-of-service"
 "Privacy Policy" = "https://browser-use.com/privacy/"
@@ -106,6 +109,7 @@ Telemetry = "https://docs.browser-use.com/development/monitoring/telemetry"
 browser-use = "browser_use.cli:main"  # Browser Use CLI for agents
 browseruse = "browser_use.cli:main"  # Alias for browser-use
 bu = "browser_use.cli:main"  # Alias for browser-use
+bu-j = "browser_use.cli:main"  # bu-J alias
 browser = "browser_use.cli:main"  # Alias for browser-use
 browser-use-tui = "browser_use.cli:browser_use_tui_main"  # Deprecated alias for browser-use
 

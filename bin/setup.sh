@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is used to setup a local development environment for the browser-use project.
+# This script is used to setup a local development environment for the bu-J project.
 # Usage:
 #   $ ./bin/setup.sh
 
@@ -20,11 +20,11 @@ cd "$SCRIPT_DIR"
 
 
 if [ -f "$SCRIPT_DIR/lint.sh" ]; then
-    echo "[√] already inside a cloned browser-use repo"
+    echo "[√] already inside a cloned bu-J repo"
 else
-    echo "[+] Cloning browser-use repo into current directory: $SCRIPT_DIR"
-    git clone https://github.com/browser-use/browser-use
-    cd browser-use
+    echo "[+] Cloning bu-J repo into current directory: $SCRIPT_DIR"
+    git clone https://github.com/geekjapan/bu-J
+    cd bu-J
 fi
 
 echo "[+] Installing uv..."
@@ -40,7 +40,7 @@ uv sync --dev --all-extras
 echo
 echo "[i] Tip: make sure to set BROWSER_USE_LOGGING_LEVEL=debug and your LLM API keys in your .env file"
 echo
-uv pip show browser-use
+uv pip show bu-J
 
 echo "Usage:"
 echo "  $ browser-use               use the CLI"

@@ -698,7 +698,7 @@ def get_browser_use_version() -> str:
 		# If pyproject.toml doesn't exist, try getting version from pip
 		from importlib.metadata import version as get_version
 
-		version = str(get_version('browser-use'))
+		version = str(get_version('bu-J'))
 		os.environ['LIBRARY_VERSION'] = version
 		return version
 
@@ -715,7 +715,7 @@ async def check_latest_browser_use_version() -> str | None:
 	"""
 	try:
 		async with httpx.AsyncClient(timeout=3.0) as client:
-			response = await client.get('https://pypi.org/pypi/browser-use/json')
+			response = await client.get('https://pypi.org/pypi/bu-J/json')
 			if response.status_code == 200:
 				data = response.json()
 				latest_version = data['info']['version']
